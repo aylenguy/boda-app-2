@@ -238,7 +238,7 @@ export default function Page() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative min-h-screen"
           >
-            <div className="absolute inset-0 bg-white/40" />
+            <div className="absolute inset-0 bg-white/20" />
 
             <button
               onClick={toggleMusic}
@@ -257,7 +257,7 @@ export default function Page() {
                 className="object-cover object-center"
               />
 
-              <div className="absolute inset-0 bg-black/12" />
+<div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-transparent" />
 
               <div className="absolute inset-0 flex items-center justify-center px-6 text-center">
                 <motion.div

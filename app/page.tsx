@@ -183,7 +183,7 @@ export default function Page() {
   };
 
   return (
-    <main className="relative min-h-screen text-[#5f6470]">
+    <main className="relative min-h-screen overflow-x-hidden bg-white text-[#5f6470]">
       <audio ref={audioRef} loop preload="auto">
         <source src="/music/boda.mp3" type="audio/mpeg" />
       </audio>
@@ -192,7 +192,7 @@ export default function Page() {
         {!entered ? (
           <motion.section
             key="intro"
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 0.01 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, scale: 1.01 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
@@ -201,7 +201,7 @@ export default function Page() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.9),rgba(247,247,245,1))]" />
 
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0.01, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
               className="relative z-10 mx-auto flex max-w-3xl flex-col items-center text-center"
@@ -232,23 +232,21 @@ export default function Page() {
         ) : (
           <motion.section
             key="card"
-            initial={{ opacity: 0, y: 18 }}
+            initial={{ opacity: 0.01, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative min-h-screen"
+            className="relative min-h-screen bg-white"
           >
-            <div className="absolute inset-0 bg-white/20" />
-
             <button
               onClick={toggleMusic}
-              className="fixed right-3 top-3 z-50 flex items-center gap-2 rounded-full border border-white/80 bg-white/80 px-3 py-2 text-[10px] uppercase tracking-[0.14em] text-[#7f98b6] shadow-md backdrop-blur-sm transition hover:bg-white sm:right-4 sm:top-4 sm:px-4 sm:text-[11px]"
+              className="fixed right-3 top-3 z-50 flex items-center gap-2 rounded-full border border-white/80 bg-white/90 px-3 py-2 text-[10px] uppercase tracking-[0.14em] text-[#7f98b6] shadow-md backdrop-blur-sm transition hover:bg-white sm:right-4 sm:top-4 sm:px-4 sm:text-[11px]"
             >
               {musicPlaying ? <Pause size={16} /> : <Play size={16} />}
             </button>
 
             {/* HERO */}
-            <section className="relative h-[52vh] min-h-[360px] w-full overflow-hidden sm:h-[56vh] md:h-[68vh]">
+            <section className="relative h-[52vh] min-h-[360px] w-full overflow-hidden bg-white sm:h-[56vh] md:h-[68vh]">
               <Image
                 src="/images/hero.png"
                 alt="Candela y Tomás"
@@ -257,10 +255,9 @@ export default function Page() {
                 className="object-cover object-center"
               />
 
-
               <div className="absolute inset-0 flex items-center justify-center px-6 text-center">
                 <motion.div
-                  initial={{ opacity: 0, y: 18 }}
+                  initial={{ opacity: 0.01, y: 18 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, ease: "easeOut" }}
                   className="max-w-4xl"
@@ -281,29 +278,33 @@ export default function Page() {
             </section>
 
             {/* COUNTDOWN */}
-            <section className="relative z-10 mx-auto max-w-6xl px-4 py-14 text-center sm:px-6 md:py-24">
-              <div className="mx-auto mt-2 flex w-full max-w-5xl items-center justify-between gap-2 sm:gap-4 md:gap-8">
-                {countdownItems.map((item, index) => (
-                  <div
-                    key={item.label}
-                    className="flex min-w-0 flex-1 items-center justify-center gap-2 sm:gap-4 md:gap-8"
-                  >
-                    <CountdownItem value={item.value} label={item.label} />
-                    {index < countdownItems.length - 1 ? <Separator /> : null}
+            <section className="relative z-10 w-full bg-white py-14 text-center sm:px-6 md:py-24">
+              <div className="mx-auto max-w-6xl px-4">
+                <div className="mx-auto max-w-5xl rounded-[28px] bg-white px-3 py-6 sm:px-4 md:px-6 md:py-8">
+                  <div className="mx-auto mt-2 flex w-full items-center justify-between gap-2 sm:gap-4 md:gap-8">
+                    {countdownItems.map((item, index) => (
+                      <div
+                        key={item.label}
+                        className="flex min-w-0 flex-1 items-center justify-center gap-2 sm:gap-4 md:gap-8"
+                      >
+                        <CountdownItem value={item.value} label={item.label} />
+                        {index < countdownItems.length - 1 ? <Separator /> : null}
+                      </div>
+                    ))}
                   </div>
-                ))}
+                </div>
               </div>
             </section>
 
             {/* CUÁNDO Y DÓNDE */}
             <motion.section
-              initial={{ opacity: 0, y: 18 }}
+              initial={{ opacity: 0.01, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true }}
               className="relative z-10 w-full bg-[url('/images/fondo-boda-hd.png')] bg-cover bg-center py-14 md:py-16"
             >
-              <div className="absolute inset-0 bg-white/70" />
+              <div className="absolute inset-0 bg-white/82" />
 
               <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
                 <div className="text-center">
@@ -322,9 +323,7 @@ export default function Page() {
                     <p className="text-base md:text-xl">
                       24 de julio de 2026 · 18:00 hs
                     </p>
-                    <p className="mt-2 text-sm md:text-base">
-                      Primera Iglesia 
-                    </p>
+                    <p className="mt-2 text-sm md:text-base">Primera Iglesia</p>
                     <p className="text-sm md:text-base">Rosario</p>
 
                     <a
@@ -362,7 +361,7 @@ export default function Page() {
 
             {/* ITINERARIO */}
             <motion.section
-              initial={{ opacity: 0, y: 18 }}
+              initial={{ opacity: 0.01, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true }}
@@ -448,13 +447,13 @@ export default function Page() {
 
             {/* RSVP */}
             <motion.section
-              initial={{ opacity: 0, y: 18 }}
+              initial={{ opacity: 0.01, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true }}
               className="relative z-10 w-full bg-[url('/images/fondo-boda-hd.png')] bg-cover bg-center py-14 md:py-16"
             >
-              <div className="absolute inset-0 bg-white/70" />
+              <div className="absolute inset-0 bg-white/82" />
 
               <div className="relative z-10 mx-auto max-w-4xl px-4 text-center sm:px-6">
                 <SectionTitle
@@ -478,12 +477,15 @@ export default function Page() {
                 </SectionCard>
               </div>
 
-              <ConfirmModal open={openModal} onClose={() => setOpenModal(false)} />
+              <ConfirmModal
+                open={openModal}
+                onClose={() => setOpenModal(false)}
+              />
             </motion.section>
 
             {/* DRESS CODE */}
             <motion.section
-              initial={{ opacity: 0, y: 18 }}
+              initial={{ opacity: 0.01, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true }}
@@ -522,13 +524,13 @@ export default function Page() {
 
             {/* GALERÍA */}
             <motion.section
-              initial={{ opacity: 0, y: 18 }}
+              initial={{ opacity: 0.01, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true }}
               className="relative z-10 w-full bg-[url('/images/fondo-boda-hd.png')] bg-cover bg-center py-14 md:py-16"
             >
-              <div className="absolute inset-0 bg-white/70" />
+              <div className="absolute inset-0 bg-white/82" />
 
               <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
                 <div className="text-center">
@@ -566,7 +568,7 @@ export default function Page() {
 
             {/* REGALO */}
             <motion.section
-              initial={{ opacity: 0, y: 18 }}
+              initial={{ opacity: 0.01, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true }}
@@ -603,18 +605,18 @@ export default function Page() {
 
             {/* TRIVIA */}
             <motion.section
-              initial={{ opacity: 0, y: 18 }}
+              initial={{ opacity: 0.01, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true }}
-              className="relative z-10"
+              className="relative z-10 bg-white"
             >
               <TriviaSection />
             </motion.section>
 
             {/* MÚSICA */}
             <motion.section
-              initial={{ opacity: 0, y: 18 }}
+              initial={{ opacity: 0.01, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true }}

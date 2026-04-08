@@ -257,7 +257,6 @@ export default function Page() {
                 className="object-cover object-center"
               />
 
-<div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-transparent" />
 
               <div className="absolute inset-0 flex items-center justify-center px-6 text-center">
                 <motion.div
@@ -367,7 +366,7 @@ export default function Page() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true }}
-              className="relative z-10 w-full bg-white/58 py-16 md:py-20"
+              className="relative z-10 w-full bg-white py-16 md:py-20"
             >
               <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
                 <SectionTitle
@@ -488,7 +487,7 @@ export default function Page() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true }}
-              className="relative z-10 w-full bg-white/58 py-16 md:py-20"
+              className="relative z-10 w-full bg-white py-16 md:py-20"
             >
               <div className="mx-auto max-w-5xl px-4 text-center sm:px-6">
                 <SectionTitle
@@ -571,7 +570,7 @@ export default function Page() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true }}
-              className="relative z-10 w-full bg-white/58 py-14 md:py-16"
+              className="relative z-10 w-full bg-white py-14 md:py-16"
             >
               <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
                 <SectionTitle
@@ -619,7 +618,7 @@ export default function Page() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true }}
-              className="relative z-10 w-full bg-white/58 py-14 md:py-16"
+              className="relative z-10 w-full bg-white py-14 md:py-16"
             >
               <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
                 <SectionTitle

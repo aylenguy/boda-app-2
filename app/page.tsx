@@ -257,7 +257,7 @@ export default function Page() {
                 className="object-cover object-center"
               />
 
-<div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-transparent" />
+<div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-transparent" />
 
               <div className="absolute inset-0 flex items-center justify-center px-6 text-center">
                 <motion.div

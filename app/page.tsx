@@ -4,6 +4,7 @@ import ConfirmModal from "./ConfirmModal";
 import TriviaSection from "./TriviaSection";
 import GiftModal from "./GiftModal";
 import Image from "next/image";
+import localFont from "next/font/local";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import {
@@ -21,6 +22,10 @@ import {
   Utensils,
   Disc3,
 } from "lucide-react";
+
+const fuente = localFont({
+ src: "../public/fonts/fuente.ttf",
+});
 
 const weddingDate = new Date("2026-07-24T18:00:00");
 
@@ -206,16 +211,16 @@ export default function Page() {
               transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
               className="relative z-10 mx-auto flex max-w-3xl flex-col items-center text-center"
             >
-              <p className="mb-4 text-[10px] uppercase tracking-[0.38em] text-[#7f98b6] sm:text-[11px] md:text-xs md:tracking-[0.5em]">
-                Invitación
-              </p>
+              
+<h1 className={`${fuente.className} text-5xl sm:text-6xl md:text-7xl lg:text-[90px] tracking-[0.08em] text-[#7f98b6] leading-[1.05] md:whitespace-nowrap`}>
+  Candela &amp; Tomás
+</h1>
 
-              <h1 className="text-3xl font-light uppercase tracking-[0.12em] text-[#7f98b6] sm:text-4xl md:text-6xl md:tracking-[0.14em]">
-                Candela &amp; Tomás
-              </h1>
+
+
 
               <p className="mt-6 max-w-2xl text-xs uppercase tracking-[0.12em] text-[#7f98b6] sm:text-sm md:text-xl md:tracking-[0.14em]">
-                El camino es más divertido si lo recorremos juntos
+                NUESTRA BODA NO ESTARÍA COMPLETA SIN SU PRESENCIA
               </p>
 
               <motion.button
@@ -262,17 +267,18 @@ export default function Page() {
                   transition={{ duration: 1, ease: "easeOut" }}
                   className="max-w-4xl"
                 >
-                  <p className="text-[10px] uppercase tracking-[0.34em] text-white/85 sm:text-[11px] md:text-xs md:tracking-[0.55em]">
-                    Nuestra boda
-                  </p>
+   <p className="text-xs uppercase tracking-[0.35em] text-white/80 sm:text-sm md:text-base md:tracking-[0.45em]">
+    Nuestra boda
+  </p>
 
-                  <h1 className="mt-4 text-3xl font-light uppercase tracking-[0.1em] text-white sm:text-5xl md:text-7xl md:tracking-[0.12em]">
-                    Candela &amp; Tomás
-                  </h1>
+  <h1 className={`${fuente.className} mt-4 text-white text-4xl sm:text-5xl md:text-7xl leading-[1.2]`}>
+    Candela y Tomás
+  </h1>
 
-                  <p className="mt-4 text-sm uppercase tracking-[0.34em] text-white/85 sm:text-[18px] md:tracking-[0.55em]">
-                    24.07.2026
-                  </p>
+  <p className="mt-6 text-xs uppercase tracking-[0.35em] text-white/80 sm:text-sm md:text-base md:tracking-[0.45em]">
+    24.07.2026
+  </p>
+
                 </motion.div>
               </div>
             </section>

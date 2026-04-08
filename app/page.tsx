@@ -257,7 +257,7 @@ export default function Page() {
                 className="object-cover object-center"
               />
 
-              <div className="absolute inset-0 bg-black/28" />
+              <div className="absolute inset-0 bg-black/12" />
 
               <div className="absolute inset-0 flex items-center justify-center px-6 text-center">
                 <motion.div
